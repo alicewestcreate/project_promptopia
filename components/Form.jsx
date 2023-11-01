@@ -20,7 +20,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <span className="font-satoshi font-semibold text-base text-gray-700">
             Your Ai Prompt
           </span>
-        </label>
 
         <textarea
           value={post.prompt}
@@ -29,14 +28,13 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           required
           className="form_textarea"
         ></textarea>
+    </label>
 
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">
             Tag
             <span>(#product #webdevelopment)</span>
           </span>
-        </label>
-
         <input
           value={post.tag}
           onChange={(e) => setPost({ ...post, tag: e.target.value })}
@@ -44,6 +42,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           required
           className="form_input"
         ></input>
+        </label>
 
         <div className="flex-end mx-3 mb-5 gap-4">
           <Link href="/" className="text-gray-500">

@@ -9,16 +9,12 @@ const CreatePrompt = () => {
   const router = useRouter()
   const {data: session } = useSession()
 
-  const [submitting, setSubmitting] = useState(false);
-
-  const [post, setPost] = useState({
-    prompt: "",
-    tag: "",
-  });
+  const [submitting, setIsSubmitting] = useState(false);
+  const [post, setPost] = useState({ prompt: "", tag: "",});
 
   const createPrompt = async (e) => {
-    e.preverntDefault();
-    setSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("api/prompt/new", {
@@ -35,7 +31,7 @@ const CreatePrompt = () => {
     } catch (error) {
       console.log(error);
     } finally { // Finally will happen either way try or catch is executed. 
-      setSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
